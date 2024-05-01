@@ -62,22 +62,22 @@ document.addEventListener(RENDER_EVENT, function() {
 
 function makeBook(bookObject) {
   const textTitle = document.createElement('h3');
-  textTitle.setAttribute('class', 'font-semibold text-md')
+  textTitle.setAttribute('class', 'font-semibold text-md text-ellipsis overflow-hidden')
   textTitle.innerText = bookObject.title;
 
   const textAuthor = document.createElement('p');
-  textAuthor.setAttribute('class', 'text-md')
+  textAuthor.setAttribute('class', 'text-md');
   textAuthor.innerText = bookObject.author;
 
   const textYear = document.createElement('p');
-  textYear.setAttribute('class', 'text-md')
+  textYear.setAttribute('class', 'text-md');
   textYear.innerText = bookObject.year;
 
   const textContainer = document.createElement('div');
   textContainer.append(textTitle, textAuthor, textYear);
 
   const container = document.createElement('section');
-  container.setAttribute('class', 'mb-2 border p-2 rounded-md')
+  container.setAttribute('class', 'mb-2 border p-2 rounded-md md:p-4 lg:p-6');
   container.append(textContainer);
   container.setAttribute('id', `book-${bookObject.id}`);
 
@@ -110,7 +110,7 @@ function makeBook(bookObject) {
     });
 
     const buttonContainer = document.createElement('div');
-    buttonContainer.setAttribute('class', 'w-max mt-4 mx-auto');
+    buttonContainer.setAttribute('class', 'flex justify-end mt-4');
     buttonContainer.append(unreadButton, editButton, deleteButton);
 
     container.append(buttonContainer);
@@ -143,7 +143,7 @@ function makeBook(bookObject) {
     });
 
     const buttonContainer = document.createElement('div');
-    buttonContainer.setAttribute('class', 'w-max mt-4 mx-auto');
+    buttonContainer.setAttribute('class', 'flex justify-end mt-4');
     buttonContainer.append(hasBeenReadButton, editButton, deleteButton);
 
     container.append(buttonContainer);
@@ -168,7 +168,7 @@ function unreadBook(bookId) {
   if (bookTarget == null) return;
 
   bookTarget.isComplete = false;
-  document.dispatchEvent(new Event(RENDER_EVENT))
+  document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
 }
 
@@ -178,7 +178,7 @@ function deleteBook(bookId) {
   if (bookTarget === -1) return;
 
   books.splice(bookTarget, 1)
-  document.dispatchEvent(new Event(RENDER_EVENT))
+  document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
 }
 
