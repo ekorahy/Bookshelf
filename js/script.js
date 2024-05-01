@@ -81,28 +81,28 @@ function makeBook(bookObject) {
 
   if (bookObject.isComplete) {
     const unreadButton = document.createElement('button');
-    unreadButton.innerText = 'unread';
     unreadButton.setAttribute(
       'class', 
-      'mx-1 bg-slate-300 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
+      'mx-1 text-slate-300 hover:bg-slate-700 hover:text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline');
+      unreadButton.innerHTML = `<span class="material-symbols-outlined mt-1">undo</span>`;
     unreadButton.addEventListener('click', function() {
       unreadBook(bookObject.id);
     });
 
     const editButton = document.createElement('button');
-    editButton.innerText = 'edit';
     editButton.setAttribute(
       'class', 
-      'mx-1 bg-yellow-300 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
+      'mx-1 text-yellow-300 hover:bg-yellow-700 hover:text-white font-bold py-2 px-3 rounded-md focus:outline-none focus:shadow-outline');
+    editButton.innerHTML = `<span class="material-symbols-outlined mt-1">edit</span>`;
     editButton.addEventListener('click', function() {
       editBook(bookObject.id);
     });
 
-    const deleteButton = document.createElement('button');
-    deleteButton.innerText = 'delete';
+    const deleteButton  = document.createElement('button');
     deleteButton.setAttribute(
       'class', 
-      'mx-1 bg-rose-300 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
+      'mx-1 text-rose-300 hover:bg-rose-700 hover:text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline');
+    deleteButton.innerHTML = `<span class="material-symbols-outlined mt-1">delete</span>`;
     deleteButton.addEventListener('click', function() {
       deleteBook(bookObject.id);
     });
@@ -116,8 +116,8 @@ function makeBook(bookObject) {
     const hasBeenReadButton = document.createElement('button');
     hasBeenReadButton.setAttribute(
       'class', 
-      'mx-1 bg-teal-300 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
-    hasBeenReadButton.innerText = "complete"
+      'mx-1 text-teal-300 hover:bg-teal-700 hover:text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline');
+    hasBeenReadButton.innerHTML = `<span class="material-symbols-outlined mt-1">Done</span>`;
     hasBeenReadButton.addEventListener('click', function() {
       completeBook(bookObject.id);
     });
@@ -125,8 +125,8 @@ function makeBook(bookObject) {
     const editButton = document.createElement('button');
     editButton.setAttribute(
       'class', 
-      'mx-1 bg-yellow-300 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
-    editButton.innerText = 'edit';
+      'mx-1 text-yellow-300 hover:bg-yellow-700 hover:text-white font-bold py-2 px-3 rounded-md focus:outline-none focus:shadow-outline');
+    editButton.innerHTML = `<span class="material-symbols-outlined mt-1">edit</span>`;
     editButton.addEventListener('click', function() {
       editBook(bookObject.id);
     });
@@ -134,8 +134,8 @@ function makeBook(bookObject) {
     const deleteButton  = document.createElement('button');
     deleteButton.setAttribute(
       'class', 
-      'mx-1 bg-rose-300 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
-    deleteButton.innerText = 'delete';
+      'mx-1 text-rose-300 hover:bg-rose-700 hover:text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline');
+    deleteButton.innerHTML = `<span class="material-symbols-outlined mt-1">delete</span>`;
     deleteButton.addEventListener('click', function() {
       deleteBook(bookObject.id);
     });
