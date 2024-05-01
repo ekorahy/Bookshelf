@@ -4,49 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookshelf</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+  <header class="w-full p-4">
+    <div>
+      <img class="h-12" src="./assets/logo.png" alt="logo image">
+    </div>
+  </header>
+
   <main>
-    <section>
-      <h2>Add new book</h2>
-      <form action="#" id="form">
-        <label for="title">Title</label>
-        <input id="title" type="text" required />
-        <label for="author">Author</label>
-        <input id="author" type="text" required />
-        <label for="year">Year</label>
-        <input id="year" type="number" required />
-        <button type="submit">Submit</button>
-      </form>
-    </section>
-
-    <section>
-      <h2>Unread</h2>
-      <div id="unread">
-
-      </div>
-    </section>
-
-    <section>
-      <h2>Has been read</h2>
-      <div id="has-been-read">
-
-      </div>
-    </section>
-
-    <section>
-      <h2>Edit book</h2>
-      <form action="#" id="form-edit">
+    <section class="w-full">
+      <div class="shadow-md rounded m-4 p-4">
+        <h2 class="font-bold text-lg">Add new book</h2>
         <form action="#" id="form">
-          <label for="title-edit">Title</label>
-          <input id="title-edit" type="text" required />
-          <label for="author-edit">Author</label>
-          <input id="author-edit" type="text" required />
-          <label for="year-edit">Year</label>
-          <input id="year-edit" type="number" required />
-          <button type="submit">Submit</button>
+          <label for="title" class="block mt-2 font-semibold text-md">Title</label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" required placeholder="example: Atomic Habits" />
+          <label for="author" class="block mt-2 font-semibold text-md">Author</label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="author" type="text" required placeholder="example: James Clear"/>
+          <label for="year" class="block mt-2 font-semibold text-md">Year</label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="year" type="number" required placeholder="example: 2018" />
+          <button class="mt-4 w-full bg-slate-300 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
         </form>
-      </form>
+      </div>
+    </section>
+
+    <section class="w-full p-4">
+      <h2 class="font-bold text-lg">Unread</h2>
+      <div class="mt-2" id="unread">
+
+      </div>
+    </section>
+
+    <section class="w-full p-4">
+      <h2 class="font-bold text-lg">Has been read</h2>
+      <div class="mt-2" id="has-been-read">
+
+      </div>
+    </section>
+
+    <div class="invisible fixed top-0 right-0 left-0 bottom-0 w-screen h-screen bg-white opacity-75" id="container-form"></div>
+    <section class="invisible fixed top-0 left-0 right-0 bottom-0 h-screen" id="container-form-edit">
+      <div class="absolute h-max mx-auto my-auto top-0 left-0 right-0 bottom-0">
+        <div class="m-4 p-4 bg-white shadow-md rounded">
+          <div class="relative">
+            <button class="absolute right-0 px-2 font-bold text-2xl text-rose-300 hover:text-rose-700 rounded-md" id="close-button" type="button">x</button>
+          </div>
+          <h2 class="mt-10 font-bold text-lg">Edit book</h2>
+          <form action="#" id="form-edit">
+            <label for="title" class="block mt-2 font-semibold text-md">Title</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title-edit" type="text" required placeholder="example: Atomic Habits" />
+            <label for="author" class="block mt-2 font-semibold text-md">Author</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="author-edit" type="text" required placeholder="example: James Clear"/>
+            <label for="year" class="block mt-2 font-semibold text-md">Year</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="year-edit" type="number" required placeholder="example: 2018" />
+            <button class="mt-4 w-full bg-slate-300 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 

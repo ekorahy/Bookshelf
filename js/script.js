@@ -62,61 +62,91 @@ document.addEventListener(RENDER_EVENT, function() {
 
 function makeBook(bookObject) {
   const textTitle = document.createElement('h3');
+  textTitle.setAttribute('class', 'font-semibold text-md')
   textTitle.innerText = bookObject.title;
 
   const textAuthor = document.createElement('p');
+  textAuthor.setAttribute('class', 'text-md')
   textAuthor.innerText = bookObject.author;
 
   const textYear = document.createElement('p');
+  textYear.setAttribute('class', 'text-md')
   textYear.innerText = bookObject.year;
 
   const textContainer = document.createElement('div');
-  textContainer.append(textTitle, textAuthor, textYear)
+  textContainer.append(textTitle, textAuthor, textYear);
 
   const container = document.createElement('section');
+  container.setAttribute('class', 'mb-2 border p-2 rounded-md')
   container.append(textContainer);
   container.setAttribute('id', `book-${bookObject.id}`);
 
   if (bookObject.isComplete) {
     const unreadButton = document.createElement('button');
     unreadButton.innerText = 'unread';
+    unreadButton.setAttribute(
+      'class', 
+      'mx-1 bg-slate-300 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
     unreadButton.addEventListener('click', function() {
       unreadBook(bookObject.id);
-    })
+    });
 
     const editButton = document.createElement('button');
     editButton.innerText = 'edit';
+    editButton.setAttribute(
+      'class', 
+      'mx-1 bg-yellow-300 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
     editButton.addEventListener('click', function() {
       editBook(bookObject.id);
-    })
+    });
 
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'delete';
+    deleteButton.setAttribute(
+      'class', 
+      'mx-1 bg-rose-300 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
     deleteButton.addEventListener('click', function() {
       deleteBook(bookObject.id);
-    })
+    });
 
-    container.append(unreadButton, editButton, deleteButton);
+    const buttonContainer = document.createElement('div');
+    buttonContainer.setAttribute('class', 'w-max mt-4 mx-auto');
+    buttonContainer.append(unreadButton, editButton, deleteButton);
+
+    container.append(buttonContainer);
   } else {
     const hasBeenReadButton = document.createElement('button');
+    hasBeenReadButton.setAttribute(
+      'class', 
+      'mx-1 bg-teal-300 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
     hasBeenReadButton.innerText = "complete"
     hasBeenReadButton.addEventListener('click', function() {
       completeBook(bookObject.id);
-    })
+    });
 
     const editButton = document.createElement('button');
+    editButton.setAttribute(
+      'class', 
+      'mx-1 bg-yellow-300 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
     editButton.innerText = 'edit';
     editButton.addEventListener('click', function() {
       editBook(bookObject.id);
-    })
+    });
 
     const deleteButton  = document.createElement('button');
+    deleteButton.setAttribute(
+      'class', 
+      'mx-1 bg-rose-300 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline');
     deleteButton.innerText = 'delete';
     deleteButton.addEventListener('click', function() {
-      deleteBook(bookObject.id)
-    })
+      deleteBook(bookObject.id);
+    });
 
-    container.append(hasBeenReadButton, editButton, deleteButton);
+    const buttonContainer = document.createElement('div');
+    buttonContainer.setAttribute('class', 'w-max mt-4 mx-auto');
+    buttonContainer.append(hasBeenReadButton, editButton, deleteButton);
+
+    container.append(buttonContainer);
   }
 
   return container;
@@ -153,6 +183,7 @@ function deleteBook(bookId) {
 }
 
 function editBook(bookId) {
+  showFormEdit();
   const bookTarget = findBook(bookId);
 
   if (bookTarget == null) return;
@@ -167,13 +198,19 @@ function editBook(bookId) {
 
   const editForm = document.getElementById('form-edit');
   editForm.addEventListener('submit', function(event) {
-    event.preventDefault()
+    event.preventDefault();
     bookTarget.title = title.value;
     bookTarget.author = author.value;
     bookTarget.year = parseInt(year.value)
-    document.dispatchEvent(new Event(RENDER_EVENT))
+    document.dispatchEvent(new Event(RENDER_EVENT));
     saveData();
     clearForm(true);
+    closeFormEdit()
+  })
+
+  const closeButton = document.getElementById('close-button');
+  closeButton.addEventListener('click', function() {
+    closeFormEdit();
   })
 }
 
@@ -209,7 +246,7 @@ function isStorageExits() {
     alert('Your browser not support local storage');
     return false;
   }
-  return true
+  return true;
 }
 
 document.addEventListener(SAVED_EVENT, function() {
@@ -239,4 +276,26 @@ function clearForm(isEdit) {
     document.getElementById('author').value = '';
     document.getElementById('year').value = '';
   }
+}
+
+function showFormEdit() {
+  const constinerForm = document.getElementById('container-form');
+  const containerFormEdit = document.getElementById('container-form-edit');
+
+  constinerForm.classList.remove('invisible');
+  constinerForm.classList.add('visible');
+
+  containerFormEdit.classList.remove('invisible');
+  containerFormEdit.classList.add('visible');
+}
+
+function closeFormEdit() {
+  const constinerForm = document.getElementById('container-form');
+  const containerFormEdit = document.getElementById('container-form-edit');
+
+  constinerForm.classList.remove('visible');
+  constinerForm.classList.add('invisible');
+
+  containerFormEdit.classList.remove('visible');
+  containerFormEdit.classList.add('invisible');
 }
