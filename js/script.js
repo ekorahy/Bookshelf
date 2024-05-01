@@ -21,13 +21,18 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+
+
 function addBook() {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const year = document.getElementById('year').value;
+  const isReaded = document.getElementById('checkbox-readed').checked;
+  
 
   const generatedId = generateId();
-  const bookObject = generatedBookObject(generatedId, title, author, parseInt(year), false);
+  const isComplete = isReaded;
+  const bookObject = generatedBookObject(generatedId, title, author, parseInt(year), isComplete);
   books.push(bookObject);
 
   document.dispatchEvent(new Event(RENDER_EVENT));
@@ -184,17 +189,20 @@ function editBook(bookId) {
   const title = document.getElementById('title-edit');
   const author = document.getElementById('author-edit');
   const year = document.getElementById('year-edit');
+  const isComplete = document.getElementById('checkbox-readed-edit');
 
   title.value = bookTarget.title;
   author.value = bookTarget.author;
   year.value = bookTarget.year;
+  isComplete.checked = bookTarget.isComplete;
 
   const editForm = document.getElementById('form-edit');
   editForm.addEventListener('submit', function(event) {
     event.preventDefault();
     bookTarget.title = title.value;
     bookTarget.author = author.value;
-    bookTarget.year = parseInt(year.value)
+    bookTarget.year = parseInt(year.value);
+    bookTarget.isComplete = isComplete.checked;
     document.dispatchEvent(new Event(RENDER_EVENT));
     saveData();
     clearForm(true);
@@ -264,10 +272,12 @@ function clearForm(isEdit) {
     document.getElementById('title-edit').value = '';
     document.getElementById('author-edit').value = '';
     document.getElementById('year-edit').value = '';
+    document.getElementById('checkbox-readed-edit').checked = false;
   } else {
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
     document.getElementById('year').value = '';
+    document.getElementById('checkbox-readed').checked = false;
   }
 }
 
@@ -314,4 +324,10 @@ function renderBooks(books) {
       hasBeenRead.append(bookElement);
     }
   }
+}
+
+function onChangeShelfText() {
+  const isComplete = document.getElementById("checkbox-readed").checked;
+  const shelf = document.getElementById('shelf');
+  shelf.innerText = isComplete ? "Finished reading" : "Unfinished reading";
 }
