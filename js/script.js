@@ -22,13 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
 function addBook() {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const year = document.getElementById('year').value;
   const isReaded = document.getElementById('checkbox-readed').checked;
-  
 
   const generatedId = generateId();
   const isComplete = isReaded;
@@ -38,6 +36,7 @@ function addBook() {
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
   clearForm(false);
+  responseSuccess("add");
 }
 
 function generateId() {
@@ -59,7 +58,7 @@ document.addEventListener(RENDER_EVENT, function() {
 });
 
 function makeBook(bookObject) {
-  const textTitle = document.createElement('h3');
+  const textTitle = document.createElement('h4');
   textTitle.setAttribute('class', 'font-semibold text-md text-ellipsis overflow-hidden')
   textTitle.innerText = bookObject.title;
 
@@ -75,7 +74,7 @@ function makeBook(bookObject) {
   textContainer.append(textTitle, textAuthor, textYear);
 
   const container = document.createElement('section');
-  container.setAttribute('class', 'mb-2 border p-2 rounded-md md:p-4 lg:p-6');
+  container.setAttribute('class', 'mb-2 border p-2 bg-white rounded-md md:p-4 lg:p-6');
   container.append(textContainer);
   container.setAttribute('id', `book-${bookObject.id}`);
 
@@ -158,6 +157,7 @@ function completeBook(bookId) {
   bookTarget.isComplete = true;
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
+  responseSuccess("finished");
 }
 
 function unreadBook(bookId) {
@@ -168,16 +168,34 @@ function unreadBook(bookId) {
   bookTarget.isComplete = false;
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
+  responseSuccess("unfinished");
 }
 
 function deleteBook(bookId) {
+  showConfirmationDelete()
   const bookTarget = findBookById(bookId);
+  const closeConfirmDelete = document.getElementById('close-confirmation-delete');
+  const yesResponse = document.getElementById('delete-yes');
+  const noResponse = document.getElementById('delete-no');
 
   if (bookTarget === -1) return;
+  
+  closeConfirmDelete.addEventListener('click', function() {
+    closeConfirmationDelete();
+  })
 
-  books.splice(bookTarget, 1)
-  document.dispatchEvent(new Event(RENDER_EVENT));
-  saveData();
+  yesResponse.addEventListener('click', function() {
+    books.splice(bookTarget, 1)
+    document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
+    closeConfirmationDelete();
+    responseSuccess("delete");
+  })
+
+  noResponse.addEventListener('click', function() {
+    closeConfirmationDelete();
+  })
+  
 }
 
 function editBook(bookId) {
@@ -205,8 +223,8 @@ function editBook(bookId) {
     bookTarget.isComplete = isComplete.checked;
     document.dispatchEvent(new Event(RENDER_EVENT));
     saveData();
-    clearForm(true);
-    closeFormEdit()
+    closeFormEdit();
+    responseSuccess('change');
   })
 
   const closeButton = document.getElementById('close-button');
@@ -281,6 +299,32 @@ function clearForm(isEdit) {
   }
 }
 
+function responseSuccess(forResult) {
+  showSuccess()
+  const messageSuccess = document.getElementById('message-success');
+  if (forResult === "add") {
+    messageSuccess.innerText = "Book data was successfully added.";
+  } else if (forResult === "change") {
+    messageSuccess.innerText = "Book data was successfully changed.";
+  } else if (forResult === "delete") {
+    messageSuccess.innerText = "Book data was successfully deleted.";
+  } else if (forResult === "finished") {
+    messageSuccess.innerText = "Book data successfully moved to shelf Finished reading.";
+  } else if (forResult === "unfinished") {
+    messageSuccess.innerText = "Book data successfully moved to shelf Unfinished reading.";
+  }
+
+  const closeSuccessResponse = document.getElementById('close-success');
+  closeSuccessResponse.addEventListener('click', function() {
+    closeSuccess();
+  })
+
+  const buttonOke = document.getElementById('success-ok');
+  buttonOke.addEventListener('click', function() {
+    closeSuccess();
+  })
+}
+
 function showFormEdit() {
   const constinerForm = document.getElementById('container-form');
   const containerFormEdit = document.getElementById('container-form-edit');
@@ -290,6 +334,28 @@ function showFormEdit() {
 
   containerFormEdit.classList.remove('invisible');
   containerFormEdit.classList.add('visible');
+}
+
+function showConfirmationDelete() {
+  const containerConfirmationDelete = document.getElementById('container-confirmation-delete');
+  const contentConfirmationDelete = document.getElementById('content-confirmation-delete');
+
+  containerConfirmationDelete.classList.remove('invisible');
+  containerConfirmationDelete.classList.add('visible');
+  
+  contentConfirmationDelete.classList.remove('invisible');
+  contentConfirmationDelete.classList.add('visible');
+}
+
+function showSuccess() {
+  const containerSuccess = document.getElementById('container-success');
+  const contentSuccess = document.getElementById('content-success');
+
+  containerSuccess.classList.remove('invisible');
+  containerSuccess.classList.add('visible');
+
+  contentSuccess.classList.remove('invisible');
+  contentSuccess.classList.add('visible');
 }
 
 function closeFormEdit() {
@@ -303,10 +369,44 @@ function closeFormEdit() {
   containerFormEdit.classList.add('invisible');
 }
 
+function closeConfirmationDelete() {
+  const containerConfirmationDelete = document.getElementById('container-confirmation-delete');
+  const contentConfirmationDelete = document.getElementById('content-confirmation-delete');
+
+  containerConfirmationDelete.classList.remove('visible');
+  containerConfirmationDelete.classList.add('invisible');
+  
+  contentConfirmationDelete.classList.remove('visible');
+  contentConfirmationDelete.classList.add('invisible');
+}
+
+function closeSuccess() {
+  const containerSuccess = document.getElementById('container-success');
+  const contentSuccess = document.getElementById('content-success');
+
+  containerSuccess.classList.remove('visible');
+  containerSuccess.classList.add('invisible');
+
+  contentSuccess.classList.remove('visible');
+  contentSuccess.classList.add('invisible');
+}
+
 function searchBook() {
   const searchTitle = document.getElementById('search-title').value.toLowerCase();
   const filteredBooks = books.filter((book) => book.title.toLowerCase().includes(searchTitle));
   renderBooks(filteredBooks);
+  if (filteredBooks.length == 0) {
+    showNotFound()
+    const btnClose = document.getElementById('close-not-found');
+    btnClose.addEventListener('click', function() {
+      closeNotFound();
+    });
+
+    const btnBack = document.getElementById('btn-back');
+    btnBack.addEventListener('click', function() {
+      closeNotFound();
+    });
+}
 }
 
 function renderBooks(books) {
@@ -324,6 +424,28 @@ function renderBooks(books) {
       hasBeenRead.append(bookElement);
     }
   }
+}
+
+function showNotFound() {
+  const containerNotFound = document.getElementById('container-not-found');
+  const contentNotFound = document.getElementById('content-not-found');
+
+  containerNotFound.classList.remove('invisible');
+  containerNotFound.classList.add('visible');
+
+  contentNotFound.classList.remove('invisible');
+  contentNotFound.classList.add('visible');
+}
+
+function closeNotFound() {
+  const containerNotFound = document.getElementById('container-not-found');
+  const contentNotFound = document.getElementById('content-not-found');
+
+  containerNotFound.classList.remove('visible');
+  containerNotFound.classList.add('invisible');
+
+  contentNotFound.classList.remove('visible');
+  contentNotFound.classList.add('invisible');v
 }
 
 function onChangeShelfText() {
