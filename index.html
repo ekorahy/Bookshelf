@@ -8,36 +8,50 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body class="bg-slate-100">
-  <header class="w-full fixed z-10 top-0 p-4 backdrop-blur-sm bg-slate-100/3">
-    <div class="max-w-screen-xl mx-auto flex justify-between">
-      <a href="/">
-        <img class="h-12" src="./assets/logo.png" alt="logo image">
-      </a>
-      <button type="button" onclick="onMenu()" id="btn-menu"><span class="material-symbols-outlined my-auto sm:invisible">menu</span></button>
-
-      <ul class="invisible my-auto md:visible">
-        <li class="p-4 inline"><a href="/" >Home</a></li>
-        <li class="p-4 inline"><a href="#" >About</a></li>
-        <li class="p-4 inline"><a href="#" >Features</a></li>
-        <li class="p-4 inline"><a href="#" >Articles</a></li>
-        <li class="p-4 inline"><a href="#" >FAQ</a></li>
-      </ul>
-
-      <a href="#"><img class="invisible h-8 mx-auto my-4 md:visible" src="./assets/githubicon.png" alt=""></a>
-    </div>
-
-    <div class="invisible absolute left-0 h-screen w-full bg-white mt-4" id="mobile-navigation">
-      <div class="text-center">
-        <ul>
-          <li class="p-2 border-b"><a href="/" >Home</a></li>
-          <li class="p-2 border-b"><a href="#" >About</a></li>
-          <li class="p-2 border-b"><a href="#" >Features</a></li>
-          <li class="p-2 border-b"><a href="#" >Articles</a></li>
-          <li class="p-2 border-b"><a href="#" >FAQ</a></li>
-        </ul>
-        <a href="#"><img class="h-8 mx-auto my-4" src="./assets/githubicon.png" alt=""></a>
+  <header class="w-full fixed z-10 top-0 p-4 backdrop-blur-md bg-slate-100/3">
+    <nav class="relative h-8 md:h-12">
+      <div class="absolute top-0 right-0 left-0 sm:invisible" id="nav-mobile">
+        <div class="max-w-screen-xl mx-auto my-auto flex justify-between">
+          <a href="/">
+            <img class="h-8" src="./assets/logo.png" alt="logo image">
+          </a>
+          <button type="button" onclick="onMenu()" id="btn-menu"><span class="material-symbols-outlined text-2xl my-auto">menu</span></button>
+        </div>
       </div>
-    </div>
+
+      <div class="invisible absolute top-0 right-0 left-0 sm:visible">
+        <div class="max-w-screen-xl mx-auto flex justify-between">
+          <a href="/">
+            <img class="h-12 my-auto" src="./assets/logo.png" alt="logo image">
+          </a>
+    
+          <ul class="invisible my-auto md:visible">
+            <li class="mx-2 inline"><a href="/" >Home</a></li>
+            <li class="mx-2 inline"><a href="#" >About</a></li>
+            <li class="mx-2 inline"><a href="#" >Features</a></li>
+            <li class="mx-2 inline"><a href="#" >Articles</a></li>
+            <li class="mx-2 inline"><a href="#" >FAQ</a></li>
+          </ul>
+    
+          <div class="my-auto">
+            <a href="#"><img class="invisible h-8 md:visible" src="./assets/githubicon.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="invisible absolute left-0 right-0 h-screen w-full bg-white mt-12" id="mobile-navigation">
+        <div class="text-center">
+          <ul>
+            <li class="p-2 border-b"><a href="/" >Home</a></li>
+            <li class="p-2 border-b"><a href="#" >About</a></li>
+            <li class="p-2 border-b"><a href="#" >Features</a></li>
+            <li class="p-2 border-b"><a href="#" >Articles</a></li>
+            <li class="p-2 border-b"><a href="#" >FAQ</a></li>
+          </ul>
+          <a href="#"><img class="h-8 mx-auto my-4" src="./assets/githubicon.png" alt=""></a>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <main class="max-w-screen-xl mx-auto my-20 snap-x md:my-40 lg:my-50">
