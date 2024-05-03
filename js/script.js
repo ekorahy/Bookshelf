@@ -468,7 +468,6 @@ function onChangeShelfText() {
 }
 
 function onMenu() {
-  const buttonMenu = document.getElementById('btn-menu');
   const mobileNavigation = document.getElementById('mobile-navigation');
 
   if (isMenuOpen) {
