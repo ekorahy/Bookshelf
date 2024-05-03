@@ -4,6 +4,8 @@ const RENDER_EVENT = 'render_event';
 const SAVED_EVENT = 'saved-book';
 const STORAGE_KEY = 'BOOKSHELF';
 
+AOS.init(); 
+
 document.addEventListener('DOMContentLoaded', function() {
   const addForm = document.getElementById('form');
   addForm.addEventListener('submit', function(event) {
