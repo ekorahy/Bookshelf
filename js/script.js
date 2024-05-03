@@ -1,4 +1,5 @@
 const books = [];
+let isMenuOpen = false;
 const RENDER_EVENT = 'render_event';
 const SAVED_EVENT = 'saved-book';
 const STORAGE_KEY = 'BOOKSHELF';
@@ -452,4 +453,19 @@ function onChangeShelfText() {
   const isComplete = document.getElementById("checkbox-readed").checked;
   const shelf = document.getElementById('shelf');
   shelf.innerText = isComplete ? "Finished reading" : "Unfinished reading";
+}
+
+function onMenu() {
+  const buttonMenu = document.getElementById('btn-menu');
+  const mobileNavigation = document.getElementById('mobile-navigation');
+
+  if (isMenuOpen) {
+    mobileNavigation.classList.remove('visible');
+    mobileNavigation.classList.add('invisible')
+    isMenuOpen = false;
+  } else {
+    mobileNavigation.classList.remove('invisible');
+    mobileNavigation.classList.add('visible')
+    isMenuOpen = true;
+  }
 }
