@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <section class="scroll-mt-24 w-full mx-auto mt-20 px-4 md:px-8" id="add-new-book">
+    <section class="scroll-mt-24 w-full mx-auto mt-20 px-4 md:px-8 lg:mt-40" id="add-new-book">
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div class="md:order-last md:text-end">
           <h2 class="font-bold text-2xl md:text-4xl lg:text-6xl"><span class="text-slate-300">Add </span>new book</h2>
@@ -97,7 +97,7 @@
       </div>
     </section>
 
-    <div class="mt-20 px-4 md:px-8">
+    <div class="mt-20 px-4 md:px-8 lg:mt-40">
       <h2 class="font-bold text-2xl text-center md:text-4xl lg:text-6xl">Your <span class="text-slate-300">bookshelves</span></h2>
       <div class="grid grid-cols-1 gap-4 mx-4 mt-4 sm:grid-cols-2 md:grid-cols-3">
         <section class="relative h-max bg-white p-4 overflow-hidden">
@@ -107,7 +107,7 @@
         </section>
 
         <section class="relative w-full h-max bg-white p-4 overflow-hidden">
-          <h3 class="z-20 font-bold">Total books unfinished</h3>
+          <h3 class="font-bold">Total books unfinished</h3>
           <p class="text-6xl text-rose-300" id="total-books-unfinished"></p>
           <div class="absolute -right-20 -bottom-24 h-40 w-40 rounded-full bg-rose-300"></div>
         </section>
@@ -128,14 +128,14 @@
           </form>
         </div>
       </div>
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <section class="w-full p-4">
-          <h3 class="font-bold text-lg lg:text-center">Unfinished reading</h3>
+      <div class="grid grid-cols-1 gap-4 p-4 rounded-md lg:grid-cols-2 bg-[url('./assets/library.jpg')] bg-cover">
+        <section class="w-full p-4 backdrop-blur-md rounded-md bg-slate-100/3">
+          <h3 class="font-bold text-white text-lg lg:text-center md:text-xl">Unfinished reading</h3>
           <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2" id="unread"></div>
         </section>
     
-        <section class="w-full p-4">
-          <h3 class="font-bold text-lg lg:text-center">Finished reading</h3>
+        <section class="w-full p-4 backdrop-blur-md rounded-md bg-slate-100/3">
+          <h3 class="font-bold text-white text-lg lg:text-center md-text-xl">Finished reading</h3>
           <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2" id="has-been-read"></div>
         </section>
       </div>
@@ -226,7 +226,7 @@
     
   </main>
 
-  <footer class="bg-slate-700">
+  <footer class="bg-slate-700 mt-10">
     <p class="p-6 font-semibold text-md text-center text-white">Made with ❤️ by Ekorahy</p>
   </footer>
 
