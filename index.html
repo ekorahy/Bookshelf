@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body class="bg-slate-100">
-  <header class="w-full fixed z-10 top-0 p-4 backdrop-blur-md bg-slate-100/3">
+  <header class="w-full fixed z-20 top-0 p-4 backdrop-blur-md bg-slate-100/3">
     <nav class="relative h-8 md:h-12">
       <div class="absolute top-0 right-0 left-0 sm:invisible" id="nav-mobile">
         <div class="max-w-screen-xl mx-auto my-auto flex justify-between">
@@ -54,14 +54,14 @@
     </nav>
   </header>
 
-  <main class="max-w-screen-xl mx-auto my-20 snap-x md:my-40 lg:my-50">
-    <div class="h-max grid grid-cols-1 mx-4 pt-20 lg:grid-cols-2" id="hero">
+  <main class="max-w-screen-xl mx-auto mt-20 snap-x md:mt-40 lg:mt-50">
+    <div class="h-max grid grid-cols-1 px-4 pt-20 md:px-8 lg:grid-cols-2" id="hero">
       <div class="lg:order-last lg:my-auto lg:mx-auto">
         <div class="relative w-40 h-40 bg-slate-300 sm:h-60 sm:w-60 sm:mt-30 md:h-96 md:w-96"></div>
         <img class="w-40 absolute mt-20 top-0 sm:w-60 md:w-80 md:mt-36" src="./assets/hero.png" alt="">
       </div>
       <div class="mt-4 lg:my-auto lg:mx-auto">
-        <h2 class="font-bold text-2xl md:text-4xl lg:text-6xl">Improve your <span class="text-slate-300">literacy skills</span> through <span class="text-slate-300">reading</span>.</h2>
+        <h2 class="font-bold text-2xl md:text-4xl lg:text-6xl">Improve your <span class="text-slate-300">literacy skills</span> through <span class="text-slate-300">reading</span></h2>
         <p class="mt-2 mb-4 md:text-xl md:mb-8">Bookshelf app helps you organize and inspires you to finish the books you have read.</p>
         <a href="#add-new-book" class="font-bold bg-slate-300 hover:bg-slate-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline md:text-lg md:py-4 md:px-6">
           Get Started
@@ -69,39 +69,65 @@
       </div>
     </div>
 
-    <section class="scroll-mt-24 w-full mx-auto mt-20 md:w-3/4 lg:w-2/4" id="add-new-book">
-      <div class="m-4 p-4 bg-white rounded-md md:p-4 lg:p-6">
-        <h2 class="font-bold text-lg">Add new book</h2>
-        <form action="#" id="form">
-          <label for="title" class="block mt-2 font-semibold text-md">Title</label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" required placeholder="example: Atomic Habits" />
-          <label for="author" class="block mt-2 font-semibold text-md">Author</label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="author" type="text" required placeholder="example: James Clear"/>
-          <label for="year" class="block mt-2 font-semibold text-md">Year</label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="year" type="number" required placeholder="example: 2018" />
-          <div class="mt-4">
-            <input class="h-full w-5 rounded-md accent-slate-300 focus:accent-slate-700" id="checkbox-readed" onclick="onChangeShelfText()" type="checkbox">
-            <label class="font-semibold text-md" for="checkbox-readed">Finished reading</label>
+    <section class="scroll-mt-24 w-full mx-auto mt-20 px-4 md:px-8" id="add-new-book">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div class="md:order-last md:text-end">
+          <h2 class="font-bold text-2xl md:text-4xl lg:text-6xl"><span class="text-slate-300">Add </span>new book</h2>
+          <p class="mt-2 mb-4 md:text-xl md:mb-8">In order to be well organized, please add books to the "Finished reading" or "Unfinished reading" shelves.</p>
+          <div class="w-max mx-auto relative mt-2">
+            <div class="h-40 w-60 bg-slate-300 ml-4 md:h-60 md:w-80 md:ml-8"></div>
+            <img class="absolute top-4 h-40 w-60 z-10 md:h-60 md:w-80 md:top-8" src="./assets/bookshelf.jpg" alt="">
           </div>
-          <button class="mt-3 w-full bg-slate-300 hover:bg-slate-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="add" type="submit">Add book to the shelf <span class="font-bold" id="shelf">Unfinished reading</span></button>
-        </form>
+        </div>
+        <div class="h-max mt-10 p-4 bg-white rounded-md md:p-4 lg:p-6 md:my-auto">
+          <form action="#" id="form">
+            <label for="title" class="block mt-2 font-semibold text-md">Title</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" required placeholder="example: Atomic Habits" />
+            <label for="author" class="block mt-2 font-semibold text-md">Author</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="author" type="text" required placeholder="example: James Clear"/>
+            <label for="year" class="block mt-2 font-semibold text-md">Year</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="year" type="number" required placeholder="example: 2018" />
+            <div class="mt-4">
+              <input class="h-full w-5 rounded-md accent-slate-300 focus:accent-slate-700" id="checkbox-readed" onclick="onChangeShelfText()" type="checkbox">
+              <label class="font-semibold text-md" for="checkbox-readed">Finished reading</label>
+            </div>
+            <button class="mt-3 w-full bg-slate-300 hover:bg-slate-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="add" type="submit">Add book to the shelf <span class="font-bold" id="shelf">Unfinished reading</span></button>
+          </form>
+        </div>        
       </div>
     </section>
 
-    <section class="w-full mx-auto mt-8 md:w-4/5">
-      <div class="m-4">
-        <form class="p-2 bg-white rounded-md md:p-4 lg:p-6" action="#" id="form-search">
-          <h2 class="block font-bold text-lg text-center">Search</h2>
-          <div class="md:flex md:flex-row md:gap-4">
-            <input class="w-full shadow appearance-none border mt-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:basis-3/4" id="search-title" type="text" placeholder="example: Atomic Habits...">
-          <button class="mt-3 w-full bg-slate-300 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline md:basis-1/4" type="submit">Search</button>
-          </div>
-        </form>
-      </div>
-    </section>
+    <div class="mt-20 px-4 md:px-8">
+      <h2 class="font-bold text-2xl text-center md:text-4xl lg:text-6xl">Your <span class="text-slate-300">bookshelves</span></h2>
+      <div class="grid grid-cols-1 gap-4 mx-4 mt-4 sm:grid-cols-2 md:grid-cols-3">
+        <section class="relative h-max bg-white p-4 overflow-hidden">
+          <h3 class="font-bold">Total books</h3>
+          <p class="text-6xl text-slate-300" id="total-books"></p>
+          <div class="absolute -right-20 -bottom-24 h-40 w-40 rounded-full bg-slate-300"></div>
+        </section>
 
-    <div>
-      <h2 class="font-bold text-2xl text-center">Bookshelves</h2>
+        <section class="relative w-full h-max bg-white p-4 overflow-hidden">
+          <h3 class="z-20 font-bold">Total books unfinished</h3>
+          <p class="text-6xl text-rose-300" id="total-books-unfinished"></p>
+          <div class="absolute -right-20 -bottom-24 h-40 w-40 rounded-full bg-rose-300"></div>
+        </section>
+
+        <section class="relative w-full h-max bg-white p-4 overflow-hidden">
+          <h3 class="font-bold">Total books finished</h3>
+          <p class="text-6xl text-teal-300" id="total-books-finished"></p>
+          <div class="absolute -right-20 -bottom-24 h-40 w-40 rounded-full bg-teal-300"></div>
+        </section>
+      </div>
+      <div class="w-full mx-auto mt-8 md:w-4/5">
+        <div class="m-4">
+          <form class="p-2 bg-white rounded-md md:p-4 lg:p-6" action="#" id="form-search">
+            <div class="md:flex md:flex-row md:gap-4">
+              <input class="w-full shadow appearance-none border mt-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:basis-3/4" id="search-title" type="text" placeholder="example: Atomic Habits...">
+            <button class="mt-3 w-full bg-slate-300 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline md:basis-1/4" type="submit">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <section class="w-full p-4">
           <h3 class="font-bold text-lg lg:text-center">Unfinished reading</h3>
@@ -115,8 +141,8 @@
       </div>
     </div>
 
-    <div class="invisible fixed top-0 right-0 left-0 bottom-0 w-screen h-screen backdrop-blur-sm bg-white/30" id="container-form"></div>
-    <section class="invisible fixed top-0 left-0 right-0 bottom-0 mx-auto h-screen md:w-3/4 lg:w-2/4" id="container-form-edit">
+    <div class="invisible z-30 fixed top-0 right-0 left-0 bottom-0 w-screen h-screen backdrop-blur-sm bg-white/30" id="container-form"></div>
+    <section class="invisible z-30 fixed top-0 left-0 right-0 bottom-0 mx-auto h-screen md:w-3/4 lg:w-2/4" id="container-form-edit">
       <div class="absolute h-max mx-auto my-auto top-0 left-0 right-0 bottom-0">
         <div class="m-4 p-4 bg-white shadow-md rounded">
           <div class="relative">
@@ -140,8 +166,8 @@
       </div>
     </section>
 
-    <div class="invisible fixed top-0 right-0 left-0 bottom-0 w-screen h-screen backdrop-blur-sm bg-white/30" id="container-confirmation-delete"></div>
-    <section class="invisible fixed top-0 left-0 right-0 bottom-0 mx-auto h-screen md:w-3/4 lg:w-2/4" id="content-confirmation-delete">
+    <div class="invisible z-30 fixed top-0 right-0 left-0 bottom-0 w-screen h-screen backdrop-blur-sm bg-white/30" id="container-confirmation-delete"></div>
+    <section class="invisible z-30 fixed top-0 left-0 right-0 bottom-0 mx-auto h-screen md:w-3/4 lg:w-2/4" id="content-confirmation-delete">
       <div class="absolute h-max mx-auto my-auto top-0 left-0 right-0 bottom-0">
         <div class="relative">
           <button class="absolute top-2 right-6 px-2 font-bold text-2xl text-rose-300 hover:text-rose-700 rounded-md sm:right-10" id="close-confirmation-delete" type="button">x</button>
@@ -160,8 +186,8 @@
       </div>
     </section>
 
-    <div class="invisible fixed top-0 right-0 left-0 bottom-0 w-screen h-screen backdrop-blur-sm bg-white/30" id="container-success"></div>
-    <section class="invisible fixed top-0 left-0 right-0 bottom-0 mx-auto h-screen md:w-3/4 lg:w-2/4" id="content-success">
+    <div class="invisible z-30 fixed top-0 right-0 left-0 bottom-0 w-screen h-screen backdrop-blur-sm bg-white/30" id="container-success"></div>
+    <section class="invisible z-30 fixed top-0 left-0 right-0 bottom-0 mx-auto h-screen md:w-3/4 lg:w-2/4" id="content-success">
       <div class="absolute h-max mx-auto my-auto top-0 left-0 right-0 bottom-0">
         <div class="relative">
           <button class="absolute top-2 right-6 px-2 font-bold text-2xl text-rose-300 hover:text-rose-700 rounded-md sm:right-10" id="close-success" type="button">x</button>
@@ -179,8 +205,8 @@
       </div>
     </section>
 
-    <div class="invisible fixed top-0 right-0 left-0 bottom-0 w-screen h-screen backdrop-blur-sm bg-white/30" id="container-not-found"></div>
-    <section class="invisible fixed top-0 left-0 right-0 bottom-0 mx-auto h-screen md:w-3/4 lg:w-2/4" id="content-not-found">
+    <div class="invisible z-30 fixed top-0 right-0 left-0 bottom-0 w-screen h-screen backdrop-blur-sm bg-white/30" id="container-not-found"></div>
+    <section class="invisible z-30 fixed top-0 left-0 right-0 bottom-0 mx-auto h-screen md:w-3/4 lg:w-2/4" id="content-not-found">
       <div class="absolute h-max mx-auto my-auto top-0 left-0 right-0 bottom-0">
         <div class="relative">
           <button class="absolute top-2 right-6 px-2 font-bold text-2xl text-rose-300 hover:text-rose-700 rounded-md sm:right-10" id="close-not-found" type="button">x</button>

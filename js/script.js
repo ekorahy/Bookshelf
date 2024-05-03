@@ -425,6 +425,18 @@ function renderBooks(books) {
       hasBeenRead.append(bookElement);
     }
   }
+
+  const totalBooks = document.getElementById("total-books");
+  totalBooks.innerText = books.length;
+
+  const totalBooksUnfinished = document.getElementById('total-books-unfinished');
+  let totalBooksUnfinishedLength = books.filter((book) => !book.isComplete)
+  totalBooksUnfinished.innerText = totalBooksUnfinishedLength.length;
+  
+
+  const totalBooksFinished = document.getElementById('total-books-finished');
+  let totalBooksFinishedLength = books.filter((book) => book.isComplete);
+  totalBooksFinished.innerText = totalBooksFinishedLength.length;
 }
 
 function showNotFound() {
