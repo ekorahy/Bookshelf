@@ -60,15 +60,15 @@ document.addEventListener(RENDER_EVENT, function() {
 
 function makeBook(bookObject) {
   const textTitle = document.createElement('h4');
-  textTitle.setAttribute('class', 'font-semibold text-md text-ellipsis overflow-hidden')
+  textTitle.setAttribute('class', 'roboto-bold text-lg text-ellipsis overflow-hidden')
   textTitle.innerText = bookObject.title;
 
   const textAuthor = document.createElement('p');
-  textAuthor.setAttribute('class', 'text-md');
+  textAuthor.setAttribute('class', 'roboto-light text-md');
   textAuthor.innerText = bookObject.author;
 
   const textYear = document.createElement('p');
-  textYear.setAttribute('class', 'text-md');
+  textYear.setAttribute('class', 'roboto-light text-md');
   textYear.innerText = bookObject.year;
 
   const textContainer = document.createElement('div');

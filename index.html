@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookshelf</title>
+  <link rel="stylesheet" href="./styles/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
@@ -25,12 +26,12 @@
             <img class="h-12 my-auto hover:opacity-50" src="./assets/logo.png" alt="logo image">
           </a>
     
-          <ul class="invisible my-auto md:visible">
-            <li class="mx-2 inline font-semibold hover:text-slate-300 active:text-slate-300"><a href="/" >Home</a></li>
-            <li class="mx-2 inline font-semibold hover:text-slate-300 active:text-slate-300"><a href="#" >About</a></li>
-            <li class="mx-2 inline font-semibold hover:text-slate-300 active:text-slate-300"><a href="#" >Features</a></li>
-            <li class="mx-2 inline font-semibold hover:text-slate-300 active:text-slate-300"><a href="#" >Articles</a></li>
-            <li class="mx-2 inline font-semibold hover:text-slate-300 active:text-slate-300"><a href="#" >FAQ</a></li>
+          <ul class="invisible my-auto md:visible roboto-light">
+            <li class="mx-2 inline hover:text-slate-300 active:text-slate-300"><a href="/" >Home</a></li>
+            <li class="mx-2 inline hover:text-slate-300 active:text-slate-300"><a href="#" >About</a></li>
+            <li class="mx-2 inline hover:text-slate-300 active:text-slate-300"><a href="#" >Features</a></li>
+            <li class="mx-2 inline hover:text-slate-300 active:text-slate-300"><a href="#" >Articles</a></li>
+            <li class="mx-2 inline hover:text-slate-300 active:text-slate-300"><a href="#" >FAQ</a></li>
           </ul>
     
           <div class="my-auto">
@@ -40,13 +41,13 @@
       </div>
 
       <div class="invisible absolute right-0 h-max w-40 bg-white mt-12 rounded-md" id="mobile-navigation">
-        <div class="text-center">
+        <div class="text-center roboto-light">
           <ul>
-            <li class="p-2 font-semibold border-b hover:text-slate-300 active:text-slate-300"><a href="/" >Home</a></li>
-            <li class="p-2 font-semibold border-b hover:text-slate-300 active:text-slate-300"><a href="#" >About</a></li>
-            <li class="p-2 font-semibold border-b hover:text-slate-300 active:text-slate-300"><a href="#" >Features</a></li>
-            <li class="p-2 font-semibold border-b hover:text-slate-300 active:text-slate-300"><a href="#" >Articles</a></li>
-            <li class="p-2 font-semibold border-b hover:text-slate-300 active:text-slate-300"><a href="#" >FAQ</a></li>
+            <li class="p-2 border-b hover:text-slate-300 active:text-slate-300"><a href="/" >Home</a></li>
+            <li class="p-2 border-b hover:text-slate-300 active:text-slate-300"><a href="#" >About</a></li>
+            <li class="p-2 border-b hover:text-slate-300 active:text-slate-300"><a href="#" >Features</a></li>
+            <li class="p-2 border-b hover:text-slate-300 active:text-slate-300"><a href="#" >Articles</a></li>
+            <li class="p-2 border-b hover:text-slate-300 active:text-slate-300"><a href="#" >FAQ</a></li>
           </ul>
           <a href="#"><img class="h-8 mx-auto my-4 hover:opacity-50" src="./assets/githubicon.png" alt=""></a>
         </div>
@@ -61,9 +62,9 @@
         <img class="w-40 absolute mt-20 top-0 sm:w-60 md:w-80 md:mt-36" src="./assets/hero.png" alt="">
       </div>
       <div class="mt-4 lg:my-auto lg:mx-auto">
-        <h2 class="font-bold text-2xl md:text-4xl lg:text-6xl">Improve your <span class="text-slate-300">literacy skills</span> through <span class="text-slate-300">reading</span></h2>
-        <p class="mt-2 mb-4 md:text-xl md:mb-8">Bookshelf app helps you organize and inspires you to finish the books you have read.</p>
-        <a href="#add-new-book" class="font-bold bg-slate-300 hover:bg-slate-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline md:text-lg md:py-4 md:px-6">
+        <h2 class="roboto-black text-2xl md:text-4xl lg:text-6xl">Improve your <span class="text-slate-300">literacy skills</span> through <span class="text-slate-300">reading</span></h2>
+        <p class="mt-2 mb-4 roboto-light md:text-xl md:mb-8">Bookshelf app helps you organize and inspires you to finish the books you have read.</p>
+        <a href="#add-new-book" class="roboto-bold bg-slate-300 hover:bg-slate-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline md:text-lg md:py-4 md:px-6">
           Get Started
         </a>
       </div>
@@ -72,8 +73,8 @@
     <section class="scroll-mt-24 w-full mx-auto mt-20 px-4 md:px-8 lg:mt-40" id="add-new-book">
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div class="md:order-last md:text-end">
-          <h2 class="font-bold text-2xl md:text-4xl lg:text-6xl"><span class="text-slate-300">Add </span>new book</h2>
-          <p class="mt-2 mb-4 md:text-xl md:mb-8">In order to be well organized, please add books to the "Finished reading" or "Unfinished reading" shelves.</p>
+          <h2 class="roboto-black text-2xl md:text-4xl lg:text-6xl"><span class="text-slate-300">Add </span>new book</h2>
+          <p class="mt-2 mb-4 roboto-light md:text-xl md:mb-8">In order to be well organized, please add books to the "Finished reading" or "Unfinished reading" shelves.</p>
           <div class="w-max mx-auto relative mt-2">
             <div class="h-40 w-60 bg-slate-300 ml-4 md:h-60 md:w-80 md:ml-8"></div>
             <img class="absolute top-4 h-40 w-60 z-10 md:h-60 md:w-80 md:top-8" src="./assets/bookshelf.jpg" alt="">
@@ -81,61 +82,61 @@
         </div>
         <div class="h-max mt-10 p-4 bg-white rounded-md md:p-4 lg:p-6 md:my-auto">
           <form action="#" id="form">
-            <label for="title" class="block mt-2 font-semibold text-md">Title</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" required placeholder="example: Atomic Habits" />
-            <label for="author" class="block mt-2 font-semibold text-md">Author</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="author" type="text" required placeholder="example: James Clear"/>
-            <label for="year" class="block mt-2 font-semibold text-md">Year</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="year" type="number" required placeholder="example: 2018" />
+            <label for="title" class="block mt-2 roboto-bold text-md">Title</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-slate-300 focus:shadow-outline" id="title" type="text" required placeholder="example: Atomic Habits" />
+            <label for="author" class="block mt-2 roboto-bold text-md">Author</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-slate-300 focus:shadow-outline" id="author" type="text" required placeholder="example: James Clear"/>
+            <label for="year" class="block mt-2 roboto-bold text-md">Year</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-slate-300 focus:shadow-outline" id="year" type="number" required placeholder="example: 2018" />
             <div class="mt-4">
               <input class="h-full w-5 rounded-md accent-slate-300 focus:accent-slate-700" id="checkbox-readed" onclick="onChangeShelfText()" type="checkbox">
-              <label class="font-semibold text-md" for="checkbox-readed">Finished reading</label>
+              <label class="roboto-bold text-md" for="checkbox-readed">Finished reading</label>
             </div>
-            <button class="mt-3 w-full bg-slate-300 hover:bg-slate-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="add" type="submit">Add book to the shelf <span class="font-bold" id="shelf">Unfinished reading</span></button>
+            <button class="mt-3 w-full roboto-bold bg-slate-300 hover:bg-slate-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="add" type="submit">Add book to the shelf <span class="font-bold" id="shelf">Unfinished reading</span></button>
           </form>
         </div>        
       </div>
     </section>
 
     <div class="mt-20 px-4 md:px-8 lg:mt-40">
-      <h2 class="font-bold text-2xl text-center md:text-4xl lg:text-6xl">Your <span class="text-slate-300">bookshelves</span></h2>
+      <h2 class="roboto-black text-2xl text-center md:text-4xl lg:text-6xl">Your <span class="text-slate-300">bookshelves</span></h2>
       <div class="grid grid-cols-1 gap-4 mx-4 mt-4 sm:grid-cols-2 md:grid-cols-3">
         <section class="relative h-max bg-white p-4 overflow-hidden">
-          <h3 class="font-bold">Total books</h3>
-          <p class="text-6xl text-slate-300" id="total-books"></p>
+          <h3 class="roboto-bold">Total books</h3>
+          <p class="roboto-light mt-2 text-6xl text-slate-300" id="total-books"></p>
           <div class="absolute -right-20 -bottom-24 h-40 w-40 rounded-full bg-slate-300"></div>
         </section>
 
         <section class="relative w-full h-max bg-white p-4 overflow-hidden">
-          <h3 class="font-bold">Total books unfinished</h3>
-          <p class="text-6xl text-rose-300" id="total-books-unfinished"></p>
+          <h3 class="roboto-bold">Total books unfinished</h3>
+          <p class="roboto-light mt-2 text-6xl text-rose-300" id="total-books-unfinished"></p>
           <div class="absolute -right-20 -bottom-24 h-40 w-40 rounded-full bg-rose-300"></div>
         </section>
 
         <section class="relative w-full h-max bg-white p-4 overflow-hidden">
-          <h3 class="font-bold">Total books finished</h3>
-          <p class="text-6xl text-teal-300" id="total-books-finished"></p>
+          <h3 class="roboto-bold">Total books finished</h3>
+          <p class="roboto-light mt-2 text-6xl text-teal-300" id="total-books-finished"></p>
           <div class="absolute -right-20 -bottom-24 h-40 w-40 rounded-full bg-teal-300"></div>
         </section>
       </div>
-      <div class="w-full mx-auto mt-8 md:w-4/5">
+      <div class="w-full mx-auto mt-4 md:w-4/5">
         <div class="m-4">
           <form class="p-2 bg-white rounded-md md:p-4 lg:p-6" action="#" id="form-search">
             <div class="md:flex md:flex-row md:gap-4">
               <input class="w-full shadow appearance-none border mt-4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:basis-3/4" id="search-title" type="text" placeholder="example: Atomic Habits...">
-            <button class="mt-3 w-full bg-slate-300 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline md:basis-1/4" type="submit">Search</button>
+            <button class="mt-3 w-full roboto-bold bg-slate-300 hover:bg-slate-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline md:basis-1/4" type="submit">Search</button>
             </div>
           </form>
         </div>
       </div>
       <div class="grid grid-cols-1 gap-4 p-4 rounded-md lg:grid-cols-2 bg-[url('./assets/library.jpg')] bg-cover">
         <section class="w-full p-4 backdrop-blur-md rounded-md bg-slate-100/3">
-          <h3 class="font-bold text-white text-lg lg:text-center md:text-xl">Unfinished reading</h3>
+          <h3 class="roboto-black text-white text-lg lg:text-center md:text-xl">Unfinished reading</h3>
           <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2" id="unread"></div>
         </section>
     
         <section class="w-full p-4 backdrop-blur-md rounded-md bg-slate-100/3">
-          <h3 class="font-bold text-white text-lg lg:text-center md-text-xl">Finished reading</h3>
+          <h3 class="roboto-black text-white text-lg lg:text-center md-text-xl">Finished reading</h3>
           <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-2" id="has-been-read"></div>
         </section>
       </div>
@@ -227,7 +228,7 @@
   </main>
 
   <footer class="bg-slate-700 mt-10">
-    <p class="p-6 font-semibold text-md text-center text-white">Made with ❤️ by Ekorahy</p>
+    <p class="p-6 roboto-light text-md text-center text-white">Made with ❤️ by Ekorahy</p>
   </footer>
 
   <script src="./js/script.js" type="text/javascript"></script>
