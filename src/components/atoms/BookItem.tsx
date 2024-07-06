@@ -1,7 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { BookItemProps, ReadingStatus } from "../../types";
-import { updateBookStatus, deleteBook } from "../../data/local/books"; // Import deleteBook
+import { updateBookStatus, deleteBook } from "../../data/local/books";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { VscAccount } from "react-icons/vsc";
+import { BiCategoryAlt } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 export default function BookItem({
   id,
@@ -12,12 +15,7 @@ export default function BookItem({
   category,
   description,
 }: BookItemProps) {
-  const navigate = useNavigate();
   const [status, setStatus] = useState(initialStatus);
-
-  const handleClick = () => {
-    navigate(`/detail/${id}`);
-  };
 
   const handleChangeStatus = () => {
     let newStatus: ReadingStatus;
@@ -42,8 +40,7 @@ export default function BookItem({
   };
 
   const handleDelete = () => {
-    deleteBook(id); // Panggil fungsi deleteBook dengan id buku
-    // Tambahkan logika lain jika diperlukan setelah penghapusan buku
+    deleteBook(id);
   };
 
   const getButtonText = () => {
@@ -60,8 +57,8 @@ export default function BookItem({
   };
 
   return (
-    <div className="relative cursor-pointer overflow-hidden rounded-md pb-14 shadow">
-      <div className="relative" onClick={handleClick}>
+    <div className="relative overflow-hidden rounded-md pb-14 shadow">
+      <div className="relative">
         <img
           src={coverImage}
           className="h-60 w-full object-cover"
@@ -72,24 +69,30 @@ export default function BookItem({
         </p>
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-bold">{title}</h3>
+        <h3 className="w-max text-lg font-bold underline hover:text-slate-500">
+          <Link to={`/detail/${id}`}>{title}</Link>
+        </h3>
         <div className="mb-2 flex items-center justify-between">
-          <p>{author}</p>
-          <p className="font-bold text-slate-400">{category}</p>
+          <p className="flex items-center gap-2">
+            <VscAccount /> {author}
+          </p>
+          <p className="flex items-center gap-2 text-slate-400">
+            <BiCategoryAlt /> {category}
+          </p>
         </div>
         <p className="line-clamp-3 text-justify">{description}</p>
         <div className="absolute bottom-4 mt-2 flex justify-between">
           <button
             onClick={handleChangeStatus}
-            className="rounded bg-blue-500 px-4 py-2 text-white"
+            className="rounded bg-slate-400 px-4 py-2 text-white hover:bg-slate-500"
           >
             {getButtonText()}
           </button>
           <button
             onClick={handleDelete}
-            className="ml-2 rounded bg-red-500 px-4 py-2 text-white"
+            className="ml-2 rounded bg-red-400 px-4 py-2 text-white hover:bg-red-500"
           >
-            Delete
+            <RiDeleteBinLine />
           </button>
         </div>
       </div>

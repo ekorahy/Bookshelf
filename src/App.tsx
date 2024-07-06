@@ -7,12 +7,12 @@ import DetailBook from "./pages/DetailBook";
 export default function App() {
   return (
     <>
-      <header className="sm:hidden">
+      <header className="fixed top-0 z-30 w-full border-b bg-white sm:hidden">
         <Navigation />
       </header>
-      <main className="w-full sm:relative sm:mx-auto sm:flex sm:max-w-7xl sm:gap-4 sm:p-4">
+      <main className="mt-24 w-full p-4 sm:relative sm:mx-auto sm:flex sm:max-w-7xl sm:gap-4 sm:p-4 sm:mt-0">
         <NavSide />
-        <div className="w-full sm:ml-40">
+        <div className="w-full sm:ml-52">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/detail/:id" element={<DetailBook />} />
