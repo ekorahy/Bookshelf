@@ -53,5 +53,10 @@ export interface BookListProps {
 }
 
 export interface BookItemProps {
-  book: Book;
+  coverImage: string;
+  status: StatusBooks;
+  title: string;
+  author: string;
+  category: string;
+  description: string;
 }

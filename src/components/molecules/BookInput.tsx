@@ -19,7 +19,11 @@ export default function BookInput({ onSave }: BookInputProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSave(formData);
+    const dataToSave = {
+      ...formData,
+      cover_image: formData.cover_image || "/default_cover.png",
+    };
+    onSave(dataToSave);
     setFormData(initialFormData);
   };
 
