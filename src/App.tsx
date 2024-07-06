@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Navigation from "./components/molecules/Navigation";
 import NavSide from "./components/molecules/NavSide";
+import DetailBook from "./pages/DetailBook";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <div className="w-full sm:ml-40">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/detail/:id" element={<DetailBook />} />
           </Routes>
         </div>
       </main>
