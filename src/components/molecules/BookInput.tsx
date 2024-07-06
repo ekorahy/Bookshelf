@@ -36,7 +36,7 @@ export default function BookInput({ onSave }: BookInputProps) {
       onSubmit={handleSubmit}
     >
       <label className={labelClassName}>
-        <span className="font-semibold">Cover Image</span>
+        <span className="font-semibold">Book Cover (URL)</span>
         <input
           type="text"
           className={inputClassName}
@@ -89,14 +89,14 @@ export default function BookInput({ onSave }: BookInputProps) {
       <label className={labelClassName}>
         <span className="font-semibold">Description*</span>
         <textarea
-          className={inputClassName}
+          className={`${inputClassName} min-h-40`}
           name="description"
           value={formData.description}
           onChange={handleChange}
         />
       </label>
       <label className={labelClassName}>
-        <span className="font-semibold">Publication Date*</span>
+        <span className="font-semibold">Publication Date (Year)*</span>
         <input
           type="text"
           className={inputClassName}
