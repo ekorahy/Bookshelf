@@ -61,3 +61,8 @@ export interface BookItemProps {
   category: string;
   description: string;
 }
+
+export interface SearchBarProps {
+  onSearch: (q: string) => void;
+  onClear: () => void;
+}

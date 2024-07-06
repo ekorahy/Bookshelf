@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import BookInput from "../components/molecules/BookInput";
 import { getBooks, saveBooks } from "../data/local/books";
 import { Book } from "../types";
@@ -10,10 +11,11 @@ export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
   const [filter, setFilter] = useState<string>("all");
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     setBooks(getBooks());
-  }, [books]);
+  }, [books, searchParams]); // Reload books when search params change
 
   const handleSaveBook = (book: Book) => {
     saveBooks(book);
@@ -32,6 +34,27 @@ export default function Home() {
       default:
         return books;
     }
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchParams({ q: query });
+  };
+
+  const handleClearSearch = () => {
+    setSearchParams({});
+  };
+
+  const filteredBooksBySearch = () => {
+    const query = searchParams.get("q")?.toLowerCase();
+    if (!query) return filteredBooks();
+
+    return filteredBooks().filter(
+      (book) =>
+        book.title.toLowerCase().includes(query!) ||
+        book.author.toLowerCase().includes(query!) ||
+        book.category.toLowerCase().includes(query!) ||
+        book.description.toLowerCase().includes(query!),
+    );
   };
 
   return (
@@ -60,11 +83,17 @@ export default function Home() {
         />
       </section>
       <section>
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} onClear={handleClearSearch} />
       </section>
       <section>
         <div className="flex items-center justify-between">
-          <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+          <select
+            value={filter}
+            onChange={(e) => {
+              setFilter(e.target.value);
+              setSearchParams({ ...searchParams, filter: e.target.value });
+            }}
+          >
             <option value="all">All</option>
             <option value="not read">Not Read</option>
             <option value="currently reading">Currently Reading</option>
@@ -72,7 +101,7 @@ export default function Home() {
           </select>
           <button onClick={() => setIsFormVisible(true)}>Add new book</button>
         </div>
-        <BookList books={filteredBooks()} />
+        <BookList books={filteredBooksBySearch()} />
       </section>
       {isFormVisible && (
         <div>
