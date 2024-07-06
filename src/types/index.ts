@@ -1,6 +1,6 @@
 import React from "react";
 
-type ReadingStatus = "not read" | "currently reading" | "read";
+export type ReadingStatus = "not read" | "currently reading" | "read";
 export type StatusBooks = "all" | "not read" | "currently reading" | "read";
 
 export interface BookInputProps {
@@ -53,6 +53,7 @@ export interface BookListProps {
 }
 
 export interface BookItemProps {
+  id: number;
   coverImage: string;
   status: StatusBooks;
   title: string;

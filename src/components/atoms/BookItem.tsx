@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { BookItemProps } from "../../types";
 
 export default function BookItem({
+  id,
   coverImage,
   status,
   title,
@@ -8,8 +10,17 @@ export default function BookItem({
   category,
   description,
 }: BookItemProps) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
-    <div className="shadow rounded-md overflow-hidden">
+    <div
+      className="cursor-pointer overflow-hidden rounded-md shadow"
+      onClick={handleClick}
+    >
       <div className="relative">
         <img
           src={coverImage}
@@ -22,7 +33,7 @@ export default function BookItem({
       </div>
       <div className="p-4">
         <h3 className="text-lg font-bold">{title}</h3>
-        <div className="flex items-center justify-between mb-2">
+        <div className="mb-2 flex items-center justify-between">
           <p>{author}</p>
           <p className="font-bold text-slate-400">{category}</p>
         </div>

@@ -11,6 +11,7 @@ export default function BookList({ books }: BookListProps) {
           {books.map((book, index) => (
             <BookItem
               key={index}
+              id={book.id}
               coverImage={book.cover_image}
               status={book.status}
               title={book.title}

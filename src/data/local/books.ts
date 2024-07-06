@@ -19,3 +19,8 @@ export const getBooks = (): Book[] => {
   const booksStr = localStorage.getItem('books');
   return booksStr ? JSON.parse(booksStr) : [];
 }
+
+export const getBookById = (id: number): Book | undefined => {
+  const books = getBooks();
+  return books.find((book) => book.id === id);
+}
