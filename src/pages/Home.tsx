@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BookInput from "../components/molecules/BookInput";
 import { getBooks, saveBooks } from "../data/local/books";
 import { Book } from "../types";
@@ -7,14 +7,18 @@ import SearchBar from "../components/atoms/SearchBar";
 import BookList from "../components/molecules/BookList";
 
 export default function Home() {
-  const [books, setBooks] = useState<Book[]>(getBooks());
+  const [books, setBooks] = useState<Book[]>([]);
   const [filter, setFilter] = useState<string>("all");
   const [isFormVisible, setIsFormVisible] = useState(false);
+
+  useEffect(() => {
+    setBooks(getBooks());
+  }, [books]);
 
   const handleSaveBook = (book: Book) => {
     saveBooks(book);
     setBooks(getBooks());
-    setIsFormVisible(false); // Hide form after saving book
+    setIsFormVisible(false);
   };
 
   const filteredBooks = () => {
