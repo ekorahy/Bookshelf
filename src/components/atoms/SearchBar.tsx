@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { SearchBarProps } from "../../types";
+import { CiSearch } from "react-icons/ci";
+import { GrPowerReset } from "react-icons/gr";
 
 export default function SearchBar({ onSearch, onClear }: SearchBarProps) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,9 +21,9 @@ export default function SearchBar({ onSearch, onClear }: SearchBarProps) {
   };
 
   return (
-    <form className="flex items-center space-x-4" onSubmit={handleSearch}>
+    <form className="flex items-center space-x-3" onSubmit={handleSearch}>
       <input
-        className="w-full rounded-md border p-2"
+        className="w-full rounded-md p-2 shadow outline-none"
         type="text"
         placeholder="Search books..."
         value={searchQuery}
@@ -29,17 +31,17 @@ export default function SearchBar({ onSearch, onClear }: SearchBarProps) {
         required
       />
       <button
-        className="rounded-md bg-blue-500 px-4 py-2 text-white"
+        className="rounded-md bg-slate-400 px-4 py-3 text-white hover:bg-slate-500"
         type="submit"
       >
-        Search
+        <CiSearch />
       </button>
       <button
-        className="rounded-md bg-gray-500 px-4 py-2 text-white"
+        className="rounded-md bg-white px-4 py-3 text-red-400 shadow hover:text-red-500"
         type="button"
         onClick={handleClearSearch}
       >
-        Clear
+        <GrPowerReset />
       </button>
     </form>
   );
