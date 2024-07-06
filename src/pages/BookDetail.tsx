@@ -35,7 +35,7 @@ export default function BookDetail() {
 
   return (
     <section>
-      <Link to="/" className="flex items-center gap-2 hover:text-slate-500">
+      <Link to="/" className="flex items-center w-max gap-2 hover:text-slate-500">
         <MdArrowBack /> Detail {book.title}
       </Link>
       <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
