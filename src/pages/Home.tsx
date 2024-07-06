@@ -7,6 +7,7 @@ import TotalBooksByStatus from "../components/atoms/TotalBooksByStatus";
 import SearchBar from "../components/atoms/SearchBar";
 import BookList from "../components/molecules/BookList";
 import { MdAdd } from "react-icons/md";
+import { MdClose } from "react-icons/md";
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -101,7 +102,7 @@ export default function Home() {
             <option value="read">Read</option>
           </select>
           <button
-            className="font-bold underline hover:text-slate-500 hidden sm:block"
+            className="hidden font-bold underline hover:text-slate-500 sm:block"
             onClick={() => setIsFormVisible(true)}
           >
             Add new book
@@ -114,10 +115,18 @@ export default function Home() {
       {isFormVisible && (
         <section>
           <div className="fixed inset-0 z-40 bg-black bg-opacity-50 backdrop-blur-sm" />
-          <div className="fixed left-1/2 top-1/2 z-50 h-3/4 w-full -translate-x-1/2 -translate-y-1/2 transform overflow-y-auto rounded border border-gray-300 bg-white p-4 shadow-md sm:w-4/5">
+          <div className="fixed left-1/2 top-1/2 z-50 h-full w-full -translate-x-1/2 -translate-y-1/2 transform overflow-y-auto rounded-md bg-white p-4 shadow sm:w-4/5 md:h-3/4 md:p-8">
             <div className="mb-4 flex items-center justify-between">
-              <h2>Form add new book</h2>
-              <button onClick={() => setIsFormVisible(false)}>x</button>
+              <div>
+                <h2 className="text-lg font-bold">Form add new book</h2>
+                <p>Add new books and grow your digital library.</p>
+              </div>
+              <button
+                className="p-2 text-2xl text-red-400 hover:text-red-500"
+                onClick={() => setIsFormVisible(false)}
+              >
+                <MdClose />
+              </button>
             </div>
             <BookInput onSave={handleSaveBook} />
           </div>
