@@ -68,7 +68,7 @@ export default function BookItem({
           {status}
         </p>
       </div>
-      <div className="p-4">
+      <div className="p-3">
         <h3 className="w-max text-lg font-bold underline hover:text-slate-500">
           <Link to={`/detail/${id}`}>{title}</Link>
         </h3>
@@ -81,7 +81,7 @@ export default function BookItem({
           </p>
         </div>
         <p className="line-clamp-3 text-justify">{description}</p>
-        <div className="absolute bottom-4 mt-2 flex justify-between">
+        <div className="absolute bottom-4 mt-2 flex gap-2">
           <button
             onClick={handleChangeStatus}
             className="rounded bg-slate-400 px-4 py-2 text-white hover:bg-slate-500"
@@ -90,7 +90,7 @@ export default function BookItem({
           </button>
           <button
             onClick={handleDelete}
-            className="ml-2 rounded bg-red-400 px-4 py-2 text-white hover:bg-red-500"
+            className="rounded bg-red-400 px-4 py-2 text-white hover:bg-red-500"
           >
             <RiDeleteBinLine />
           </button>
