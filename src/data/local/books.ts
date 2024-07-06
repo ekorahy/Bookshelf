@@ -24,3 +24,17 @@ export const getBookById = (id: number): Book | undefined => {
   const books = getBooks();
   return books.find((book) => book.id === id);
 }
+
+export const updateBookStatus = (id: number, newStatus: string): void => {
+  const books = getBooks();
+  const updatedBooks = books.map((book) =>
+    book.id === id ? { ...book, status: newStatus } : book
+  );
+  localStorage.setItem("books", JSON.stringify(updatedBooks));
+};
+
+export const deleteBook = (id: number): void => {
+  let books = getBooks();
+  books = books.filter((book) => book.id !== id);
+  localStorage.setItem("books", JSON.stringify(books));
+};
