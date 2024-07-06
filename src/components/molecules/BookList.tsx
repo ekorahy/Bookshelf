@@ -7,7 +7,7 @@ export default function BookList({ books }: BookListProps) {
       {books.length === 0 ? (
         <p className="text-center mt-20 text-red-400">Empty Data</p>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-8 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {books.map((book, index) => (
             <BookItem
               key={index}
