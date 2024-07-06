@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Navigation from "./components/molecules/Navigation";
 import NavSide from "./components/molecules/NavSide";
-import DetailBook from "./pages/DetailBook";
+import BookDetail from "./pages/BookDetail";
 
 export default function App() {
   return (
@@ -10,12 +10,12 @@ export default function App() {
       <header className="fixed top-0 z-30 w-full border-b bg-white sm:hidden">
         <Navigation />
       </header>
-      <main className="mt-24 w-full p-4 sm:relative sm:mx-auto sm:flex sm:max-w-7xl sm:gap-4 sm:p-4 sm:mt-0">
+      <main className="mb-10 mt-20 w-full p-4 sm:relative sm:mx-auto sm:mt-0 sm:flex sm:max-w-7xl sm:gap-4 sm:p-8">
         <NavSide />
         <div className="w-full sm:ml-52">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/detail/:id" element={<DetailBook />} />
+            <Route path="/detail/:id" element={<BookDetail />} />
           </Routes>
         </div>
       </main>
