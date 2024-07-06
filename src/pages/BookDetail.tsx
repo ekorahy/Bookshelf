@@ -8,13 +8,13 @@ export default function BookDetail() {
   const bookId = parseInt(id, 10);
 
   if (isNaN(bookId)) {
-    return <div>Invalid book ID</div>;
+    return <p className="text-red-400">Invalid book ID</p>;
   }
 
   const book: Book | undefined = getBookById(bookId);
 
   if (!book) {
-    return <div>Book not found</div>;
+    return <p className="text-red-400">Book not found</p>;
   }
 
   const getStatusColor = (status: ReadingStatus) => {
