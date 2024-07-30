@@ -17,7 +17,7 @@ export default function Home() {
 
   useEffect(() => {
     setBooks(getBooks());
-  }, [books, searchParams]);
+  }, []);
 
   const handleSaveBook = (book: Book) => {
     saveBooks(book);

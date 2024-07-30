@@ -1,13 +1,13 @@
 import React from "react";
 
-export type ReadingStatus = "not read" | "currently reading" | "read";
-export type StatusBooks = "all" | "not read" | "currently reading" | "read";
+declare type ReadingStatus = "not read" | "currently reading" | "read";
+declare type StatusBooks = "all" | "not read" | "currently reading" | "read";
 
-export interface BookInputProps {
+declare interface BookInputProps {
   onSave: (formData: Book) => void;
 }
 
-export interface Book {
+declare interface Book {
   id: number;
   cover_image: string;
   title: string;
@@ -22,37 +22,22 @@ export interface Book {
   status: ReadingStatus;
 }
 
-export const initialFormData: Book = {
-  id: 0,
-  cover_image: '',
-  title: '',
-  author: '',
-  ISBN: '',
-  category: '',
-  description: '',
-  publication_date: '',
-  publisher: '',
-  language: '',
-  page_count: 0,
-  status: "not read",
-};
-
-export interface Navigation {
+declare interface NavItemProps {
   name: string;
   path: string;
   icon: React.ReactNode;
 }
 
-export interface TotalBooks {
+declare interface TotalBooksByStatusProps {
   total: number,
   status: StatusBooks
 }
 
-export interface BookListProps {
+declare interface BookListProps {
   books: Book[];
 }
 
-export interface BookItemProps {
+declare interface BookItemProps {
   id: number;
   coverImage: string;
   status: StatusBooks;
@@ -62,7 +47,7 @@ export interface BookItemProps {
   description: string;
 }
 
-export interface SearchBarProps {
+declare interface SearchBarProps {
   onSearch: (q: string) => void;
   onClear: () => void;
 }

@@ -1,6 +1,9 @@
-import { TotalBooks } from "../../types";
+import { TotalBooksByStatusProps } from "../../types";
 
-export default function TotalBooksByStatus({ total, status }: TotalBooks) {
+export default function TotalBooksByStatus({
+  total,
+  status,
+}: TotalBooksByStatusProps) {
   const getBgColor = () => {
     switch (status) {
       case "not read":
@@ -16,7 +19,7 @@ export default function TotalBooksByStatus({ total, status }: TotalBooks) {
 
   return (
     <section className="relative overflow-hidden rounded-md p-4 shadow">
-      <div className="relative h-full z-20 pb-20">
+      <div className="relative z-20 h-full pb-20">
         <h2 className="mb-2 font-semibold">{status}</h2>
         <p className="absolute bottom-0 text-7xl font-light">{total}</p>
       </div>

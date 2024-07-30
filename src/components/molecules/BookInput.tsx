@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Book, BookInputProps, initialFormData } from "../../types";
+import { Book, BookInputProps } from "../../types";
+import { initialFormData } from "../../utils/initialData";
 
 export default function BookInput({ onSave }: BookInputProps) {
   const [formData, setFormData] = useState<Book>(initialFormData);
