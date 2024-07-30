@@ -1,8 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Navigation } from "../../types";
+import { NavItemProps } from "../../types";
 import { useState } from "react";
 
-export default function NavItem({ name, path, icon }: Navigation) {
+export default function NavItem({ name, path, icon }: NavItemProps) {
   const location = useLocation();
   const isActive = location.pathname === path;
 

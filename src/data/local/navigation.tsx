@@ -1,7 +1,7 @@
-import { Navigation } from "../../types";
+import { NavItemProps } from "../../types";
 import { GoHome } from "react-icons/go";
 
-export const navigation: Navigation[] = [
+export const navigation: NavItemProps[] = [
   {
     name: "Home",
     path: "/",
